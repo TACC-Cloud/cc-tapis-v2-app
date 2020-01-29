@@ -1,6 +1,7 @@
 {
     "name": "application",
-    "version": "0.0.1",
+    "description": "",
+    "version": "",
     "dockerfile": "Dockerfile",
     "docker_namespace": "mwvaughn",
     "project_slug": "{{ cookiecutter.name.lower().replace(' ', '_').replace('-', '_') }}",

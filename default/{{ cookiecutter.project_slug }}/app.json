@@ -6,8 +6,8 @@
   "deploymentPath": "apps/{{ app.name }}-{{ app.version }}",
   "deploymentSystem": "{{ app.deployment_system }}",
   "helpURI": "",
-  "label": "",
-  "shortDescription": "",
+  "label": "{{ app.label }}",
+  "shortDescription": "{{ app.description }}",
   "longDescription": "",
   "modules": [
     "load tacc-singularity"
