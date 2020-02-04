@@ -3,7 +3,7 @@
   "name": "{{ app.name }}",
   "executionSystem": "{{ app.execution_system }}",
   "executionType": "BATCH",
-  "deploymentPath": "apps/{{ app.name }}-{{ app.version }}",
+  "deploymentPath": "{{ username }}/apps/{{ app.name }}-{{ app.version }}",
   "deploymentSystem": "{{ app.deployment_system }}",
   "helpURI": "",
   "label": "{{ app.label }}",
