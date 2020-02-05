@@ -10,7 +10,7 @@
   "shortDescription": "{{ app.description }}",
   "longDescription": "",
   "modules": ["load tacc-singularity"],
-  "ontology": [],
+  "ontology": ["coreutils", "shell", "demo"],
   "parallelism": "SERIAL",
   "tags": [],
   "templatePath": "run.sh",
@@ -22,14 +22,15 @@
     "value": {
       "visible": true,
       "required": true,
-      "order": 0
+      "order": 0,
+      "default": "agave://{{ app.deployment_system }}/{{ username }}/apps/{{ app.name }}-{{ app.version }}/example.txt"
     },
     "details": {
       "label": "Target file",
-      "description": ""
+      "description": "Words in this file will be counted"
     },
     "semantics": {
-      "minCardinality": 1,
+      "minCardinality": 0,
       "maxCardinality": 1,
       "ontology": []
     }
@@ -47,7 +48,7 @@
       },
       "details": {
         "label": "Command-line options",
-        "description": "Command-line options to be passed to the executable."
+        "description": "These options will be passed to the 'wc' program."
       },
       "semantics": {
         "minCardinality": 1,
@@ -66,7 +67,7 @@
       },
       "details": {
         "label": "Linux container repo",
-        "description": "Repository namespace/repo:tag supporting this app"
+        "description": "Private: Specifies the container namespace/repo:tag supporting this app"
       },
       "semantics": {
         "minCardinality": 1,
