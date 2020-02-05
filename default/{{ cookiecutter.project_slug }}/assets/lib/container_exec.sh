@@ -1,4 +1,3 @@
-
 log(){
     mesg "INFO" $@
 }
@@ -21,8 +20,7 @@ utc_date() {
 
 container_exec() {
 
-
-    # [TODO] Check for existence of docker or singularity executable
+   # [TODO] Check for existence of docker or singularity executable
     # [TODO] Enable honoring a DEBUG global
     # [TODO] Figure out how to accept more optional arguments (env-file, etc)
     # [TODO] Better error handling and reporting
@@ -34,22 +32,10 @@ container_exec() {
     shift
     local PARAMS=$@
 
-    # A litte logging to help with the edge cases
-    if [ ! -z "$DEBUG" ];
-    then
-        local _PID=$$
-        echo $CONTAINER_IMAGE > .container_exec.${_PID}.log
-        echo $COMMAND >> .container_exec.${_PID}.log
-        echo $PARAMS >> .container_exec.${_PID}.log
-        echo $PWD >> .container_exec.${_PID}.log
-        echo $(ls $PWD) >> .container_exec.${_PID}.log
-        env > .container_exec.${_PID}.env
-    fi
+    local _PID=$$
 
     # Detect container engine
     local _CONTAINER_APP=$(which singularity)
-
-    log $_CONTAINER_APP
 
     if [ ! -z "${_CONTAINER_APP}" ]
     then
@@ -61,8 +47,6 @@ container_exec() {
             _CONTAINER_ENGINE="docker"
         fi
     fi
-    log "Engine: ${_CONTAINER_ENGINE}"
-
 
     if [ -z "$SINGULARITY_PULLFOLDER" ];
     then
@@ -89,8 +73,22 @@ container_exec() {
     chmod g+rwxs .
     umask 002 .
 
+    # Some logging to help troubleshoot failed jobs
+    echo "Engine: $_CONTAINER_ENGINE" > container_exec.log
+    echo "Binary: $_CONTAINER_APP" >> container_exec.log
+    echo "Repo: $CONTAINER_IMAGE" >> container_exec.log
+    echo "Command: $COMMAND" >> container_exec.log
+    echo "Params: $PARAMS" >> container_exec.log
+    echo "UID/GID: ${_UID}/${_GID}" >> container_exec.log
+    echo "Working directory: $PWD" >> container_exec.log
+    echo "Listing:" >> container_exec.log
+    echo $(ls $PWD) >> container_exec.log
+    echo "Environment:" >> container_exec.log
+    env >> container_exec.log
+
 
     if [[ "$_CONTAINER_ENGINE" == "docker" ]]; then
+        # echo "hey, it's docker"
         #local OPTS="--network=none --cpus=1.0000 --memory=1G --device-read-iops=/dev/sda:1500 --device-read-iops=/dev/sda:1500"
 
         # Set group ownership on all files making them readable by archive process
@@ -103,6 +101,7 @@ container_exec() {
         then
             set -x
         fi
+        # echo ${PARAMS}
         docker pull ${CONTAINER_IMAGE}
         docker run $OPTS ${CONTAINER_IMAGE} ${COMMAND} ${PARAMS} &&
         docker run $OPTS bash chmod -R g+rw .
@@ -113,9 +112,9 @@ container_exec() {
     elif [[ "$_CONTAINER_ENGINE" == "singularity" ]];
     then
         # [TODO] Detect and deal if an .img has been passed it (rare)
-        singularity exec docker://${CONTAINER_IMAGE} ${COMMAND} ${PARAMS}
+        singularity --quiet exec docker://${CONTAINER_IMAGE} ${COMMAND} ${PARAMS}
     else
-        log "Container engine needs to be 'docker' or 'singularity' [$_CONTAINER_ENGINE]"
+        echo "_CONTAINER_ENGINE needs to be 'docker' or 'singularity' [$_CONTAINER_ENGINE]"
     fi
 
 }
@@ -134,7 +133,7 @@ count_logical_cores() {
         _count_cores=$(grep -c processor /proc/cpuinfo)
     fi
 
-    log $_count_cores
+    echo $_count_cores
 
 }
 
@@ -142,6 +141,6 @@ auto_maxthreads() {
 
     local hwcore=$(count_logical_cores)
     hwcore=$((hwcore-1))
-    log $hwcore
+    echo $hwcore
 
 }
