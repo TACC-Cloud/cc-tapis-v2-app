@@ -1,10 +1,26 @@
+log(){
+    mesg "INFO" $@
+}
+
+die() {
+    mesg "ERROR" $@
+    exit 0
+}
+
+mesg() {
+    lvl=$1
+    shift
+    message=$@
+    echo "[$lvl] $(utc_date) - $message"
+}
+
+utc_date() {
+    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+}
 
 container_exec() {
 
-
-
-
-    # [TODO] Check for existence of docker or singularity executable
+   # [TODO] Check for existence of docker or singularity executable
     # [TODO] Enable honoring a DEBUG global
     # [TODO] Figure out how to accept more optional arguments (env-file, etc)
     # [TODO] Better error handling and reporting
