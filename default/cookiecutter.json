@@ -1,9 +1,10 @@
 {
     "name": "application",
-    "description": "",
-    "version": "",
+    "description": "Short description of the application",
+    "version": "0.0.1",
     "dockerfile": "Dockerfile",
-    "docker_namespace": "mwvaughn",
+    "docker_namespace": "",
+    "docker_base_repo": "ubuntu:bionic",
     "project_slug": "{{ cookiecutter.name.lower().replace(' ', '_').replace('-', '_') }}",
     "_copy_without_render": [
         "*app.json", 

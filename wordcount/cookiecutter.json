@@ -1,9 +1,10 @@
 {
-    "name": "application",
-    "version": "0.0.1",
+    "name": "Word Count",
+    "version": "1.0.0",
     "dockerfile": "Dockerfile",
-    "docker_namespace": "mwvaughn",
+    "docker_namespace": "",
     "project_slug": "{{ cookiecutter.name.lower().replace(' ', '_').replace('-', '_') }}",
+    "docker_base_repo": "ubuntu:bionic",
     "_copy_without_render": [
         "*app.json", 
         "*job.json"
