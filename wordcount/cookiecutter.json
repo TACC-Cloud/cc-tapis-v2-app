@@ -2,6 +2,7 @@
     "name": "Word Count",
     "version": "1.0.0",
     "dockerfile": "Dockerfile",
+    "description": "Counts up words in a file. Voila!",
     "docker_namespace": "",
     "project_slug": "{{ cookiecutter.name.lower().replace(' ', '_').replace('-', '_') }}",
     "docker_base_repo": "ubuntu:bionic",
