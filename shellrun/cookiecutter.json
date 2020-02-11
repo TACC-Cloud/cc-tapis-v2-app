@@ -1,0 +1,13 @@
+{
+    "name": "Shell Runner",
+    "version": "1.0.0",
+    "dockerfile": "Dockerfile",
+    "description": "Runs an arbitrary shell command",
+    "docker_namespace": "",
+    "project_slug": "{{ cookiecutter.name.lower().replace(' ', '_').replace('-', '_') }}",
+    "docker_base_repo": "ubuntu:bionic",
+    "_copy_without_render": [
+        "*app.json", 
+        "*job.json"
+    ]
+}
