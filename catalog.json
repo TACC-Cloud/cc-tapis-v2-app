@@ -1,0 +1,17 @@
+{
+	"default": {
+		"name": "Default",
+		"description": "Basic code and configuration skeleton",
+		"level": "beginner"
+	},
+	"shellrun": {
+		"name": "Shell Runner",
+		"description": "Run an arbitrary shell command via Tapis",
+		"level": "beginner"
+	},
+	"wordcount": {
+		"name": "Word Count",
+		"description": "Simple word counting implementation",
+		"level": "beginner"
+	}
+}
