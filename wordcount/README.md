@@ -1,11 +1,10 @@
-Default App
-===========
+This is a cookiecutter template for a "wordcount" app.
 
-This is a cookiecutter template for a "default" app.
+The wordcount app is used for simple word counting implementation. 
 
 The template can be used with Tapis CLI tapis-cli as follows:
 
-tapis apps init --template default
+tapis apps init --template wordcount
 +-------+----------------------------------------------+
 | stage | message                                      |
 +-------+----------------------------------------------+

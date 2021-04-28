@@ -1,11 +1,9 @@
-Default App
-===========
+This is a cookiecutter template for a "shellrun" app.
 
-This is a cookiecutter template for a "default" app.
-
+The shellrun app is used to run an arbitrary shell command via Tapis
 The template can be used with Tapis CLI tapis-cli as follows:
 
-tapis apps init --template default
+tapis apps init --template shellrun
 +-------+----------------------------------------------+
 | stage | message                                      |
 +-------+----------------------------------------------+
