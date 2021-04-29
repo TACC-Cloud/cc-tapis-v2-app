@@ -79,7 +79,7 @@ With Tapis-CLI installed, we can use **cc-tapis-v2-app**
     | setup | CookieCutter variable project_slug=new_app   |
     | setup | CookieCutter variable docker_namespace=reshg |
     | setup | CookieCutter variable docker_registry=e      |
-    | clone | Error: "new_app" directory already exists    |
+    | clone | Project path: ./new_app    |
     +-------+----------------------------------------------+
 
 ##################
