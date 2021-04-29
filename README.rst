@@ -105,7 +105,7 @@ Documentation: https://github.com/cookiecutter/cookiecutter
      dockerfile [Dockerfile]:
      docker_namespace []:
      docker_base_repo [ubuntu:bionic]:
-    project_slug [test_app]:
+     project_slug [test_app]:
    
 This would create a project folder test_app/ with the following tree: 
 
@@ -117,7 +117,7 @@ This would create a project folder test_app/ with the following tree:
    ├── app.json
    ├── assets
    ├── job.json
-   ├── project.ini
+   └── project.ini
 
 This is a very simple code skeleton you can fill in and deploy.
 
