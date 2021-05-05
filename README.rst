@@ -74,7 +74,7 @@ To use one of the above templates, we can do the following:
     | setup | CookieCutter variable project_slug=new_app   |
     | setup | CookieCutter variable docker_namespace=reshg |
     | setup | CookieCutter variable docker_registry=e      |
-    | clone | Project path: ./new_app    |
+    | clone | Project path: ./new_app                      |
     +-------+----------------------------------------------+
 
 This would give a new_app/ project with all the required files to help you create your own app.
