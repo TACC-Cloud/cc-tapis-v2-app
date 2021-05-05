@@ -2,17 +2,8 @@
 Tapis V2 Apps Templates
 #######################
 
-Project types:
-
-    * Scheduling: CLI vs Batch
-    * Parallelism: Serial vs Parallel
-    * Runtime: Container vs Native
-
-Naming convention is ``identifier-scheduling-parallelism-Runtime``
-
-
-A cookiecutter repository with project templates for Tapis V2 Apps. This repository provides the essential files required to build a Tapis V2 App.
-It enables a user to easily start working by modifying a preexisting template for an actor project.
+A `cookiecutter <https://github.com/cookiecutter/cookiecutterrepository>`_ repository with project templates for Tapis V2 Apps. This repository provides the essential files required to build a Tapis V2 App.
+It enables a user to easily start working by modifying a preexisting template for an app project.
 
 cookiecutters is a command-line utility that creates projects from cookiecutters (project templates), e.g. creating a Python package project from a Python package project template.
 
@@ -21,23 +12,25 @@ cookiecutters is a command-line utility that creates projects from cookiecutters
 Get Started
 ###########
 
+This repository is consumed by `Tapis-CLI <https://tapis-cli.readthedocs.io/en/latest/>`_.
+To get started with creating an actor, running the ``tapis apps init`` command will fetch a very simple code skeleton you can fill in and deploy.
+
+Let us begin by installing Tapis-CLI.
+
 -------------------------
 Installation of Tapis-CLI
 -------------------------
 
-Documentation: `https://tapis-cli.readthedocs.io/en/latest/ <https://tapis-cli.readthedocs.io/en/latest/>`_
-
+The `Tapis-CLI <https://tapis-cli.readthedocs.io/en/latest/>`_ is available as a Python package.
 
 .. code-block:: shell
 
-    $ git clone https://github.com/TACC-Cloud/tapis-cli.git
-    $ cd tapis-cli
-    $ pip install --upgrade --user .
+    $ pip install tapis-cli
 
 
-With Tapis-CLI installed, we can use **cc-tapis-v2-app**
+With Tapis-CLI **installed and configured**, let us see how we can use our cookiecutter **cc-tapis-v2-app**.
 
-1. Create a default app project
+We can create a default app with ``tapis apps init`` as shown below.
 
 .. code-block:: shell
 
@@ -53,7 +46,9 @@ With Tapis-CLI installed, we can use **cc-tapis-v2-app**
     | clone | Project path: ./new_app                      |
     +-------+----------------------------------------------+
 
-2. List the existing cookiecutter app templates
+We have more than a default template. Here is a way to list the existing templates that you can begin using.
+
+To check our library of existing templates, run the following command:
 
 .. code-block:: shell
 
@@ -66,7 +61,7 @@ With Tapis-CLI installed, we can use **cc-tapis-v2-app**
     | wordcount | Word Count   | Simple word counting implementation      | beginner |
     +-----------+--------------+------------------------------------------+----------+
 
-3. Create a specific existing project from a cookiecutter template
+To use one of the above templates, we can do the following:
 
 .. code-block:: shell
 
@@ -82,44 +77,8 @@ With Tapis-CLI installed, we can use **cc-tapis-v2-app**
     | clone | Project path: ./new_app    |
     +-------+----------------------------------------------+
 
-##################
-Using Cookiecutter
-##################
-
-cookiecutters is a command-line utility that creates projects from cookiecutters (project templates), e.g. creating a Python package project from a Python package project template.
-
-Documentation: https://github.com/cookiecutter/cookiecutter
-
-.. code-block:: shell
-
-   $ cookiecutter https://github.com/TACC-Cloud/cc-tapis-v2-app
-   This would create a .cookiecutters/cc-tapis-v2-app directory. 
-   
-   $ cd .cookiecutters/cc-tapis-v2-app
-   Use a template to create a new actor project.  
-   $ cookiecutter default 
-   > Enter the prompt values to populate the cookiecutter.json. 
-     name [application]: test_app
-     description [Short description of the application]: This is a test app
-     version [0.0.1]:
-     dockerfile [Dockerfile]:
-     docker_namespace []:
-     docker_base_repo [ubuntu:bionic]:
-     project_slug [test_app]:
-   
-This would create a project folder test_app/ with the following tree: 
-
-.. code-block:: bash
-
-   $ tree ../test_app/
-   test_app/
-   ├── Dockerfile
-   ├── app.json
-   ├── assets
-   ├── job.json
-   └── project.ini
-
-This is a very simple code skeleton you can fill in and deploy.
+This would give a new_app/ project with all the required files to help you create your own app.
+For more information on what the different files do, check our documentation at `Tapis-CLI How-To-Guide <https://tapis-cli-how-to-guide.readthedocs.io/en/latest/advanced-api/create_a_custom_app.html>`_.
 
 #################
 How To Contribute
@@ -127,8 +86,11 @@ How To Contribute
 
 New app templates are always welcome !
 
-If you have new app templates to contribute, please follow the steps below:
+If you have a new app template to contribute, please join our `Slack <http://bit.ly/join-tapis>`_ channel.
 
-- Create a pull request to the **main** branch with the new features.
-- The pull request will be reviewed and merged by the maintainer of this repository.
-- Once a new template is added, it will be added to **catalog.json** to update the list of existing templates.
+Here is what happens when you contribute towards our repository:
+  - You create a pull request to the **main** branch with the new features.
+  - We review the pull request and merge it.
+  - The new template is added to the **catalog.json** to update the list of existing templates.
+
+Hooray, thank you for contributing!

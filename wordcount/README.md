@@ -1,19 +1,13 @@
-This is a cookiecutter template for a "wordcount" app.
+Word Count App
+==============
 
-The wordcount app is used for simple word counting implementation. 
+This is a cookiecutter template for a "wordcount app.
+We can use the template to create a new app.  
 
-The template can be used with Tapis CLI tapis-cli as follows:
 
-tapis apps init --template wordcount
-+-------+----------------------------------------------+
-| stage | message                                      |
-+-------+----------------------------------------------+
-| setup | Project path: ./new_app                      |
-| setup | CookieCutter variable name=new_app           |
-| setup | CookieCutter variable project_slug=new_app   |
-| setup | CookieCutter variable docker_namespace=reshg |
-| setup | CookieCutter variable docker_registry=e      |
-| clone | Project path: ./new_app                      |
-+-------+----------------------------------------------+
+    $ cd {{ cookiecutter.project_slug }}
+    Make the required changes to the files
+    $ tapis apps deploy  
 
-This would create a subfolder new_app/ with the required files.
+
+To learn more about creating a custom actor with ``tapis apps deploy`` please refer to our documentation at [Tapis-CLI How-To-Guide](https://tapis-cli-how-to-guide.readthedocs.io/en/latest/advanced-api/create_a_custom_app.html)

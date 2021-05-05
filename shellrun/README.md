@@ -1,18 +1,13 @@
-This is a cookiecutter template for a "shellrun" app.
+Shell Run App
+=============
 
-The shellrun app is used to run an arbitrary shell command via Tapis
-The template can be used with Tapis CLI tapis-cli as follows:
+This is a cookiecutter template for a "shell run" app.
+We can use the template to create a new app.  
 
-tapis apps init --template shellrun
-+-------+----------------------------------------------+
-| stage | message                                      |
-+-------+----------------------------------------------+
-| setup | Project path: ./new_app                      |
-| setup | CookieCutter variable name=new_app           |
-| setup | CookieCutter variable project_slug=new_app   |
-| setup | CookieCutter variable docker_namespace=reshg |
-| setup | CookieCutter variable docker_registry=e      |
-| clone | Project path: ./new_app                      |
-+-------+----------------------------------------------+
 
-This would create a subfolder new_app/ with the required files.
+    $ cd {{ cookiecutter.project_slug }}
+    Make the required changes to the files
+    $ tapis apps deploy  
+
+
+To learn more about creating a custom actor with ``tapis apps deploy`` please refer to our documentation at [Tapis-CLI How-To-Guide](https://tapis-cli-how-to-guide.readthedocs.io/en/latest/advanced-api/create_a_custom_app.html).
