@@ -4,7 +4,7 @@ Tapis V2 Apps Templates
 
 Project types:
 
-    * Scheduling: CLI vs Batch
+    * Scheduling: CLI vs Batch (HPC)
     * Parallelism: Serial vs Parallel
     * Runtime: Container vs Native
 
